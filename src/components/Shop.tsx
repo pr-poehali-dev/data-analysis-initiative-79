@@ -89,38 +89,6 @@ const products = [
     category: "Толстовки",
     image: "https://cdn.poehali.dev/projects/6ce6322c-ab5c-4fe4-babc-8dc6268d3275/bucket/7a99046f-2ca3-4994-b03c-dd38a366a0ab.png",
   },
-  {
-    id: 12,
-    name: "Кофта Premium",
-    price: 8000,
-    colors: [],
-    category: "Толстовки",
-    image: null,
-  },
-  {
-    id: 13,
-    name: "Свитшот",
-    price: 5500,
-    colors: [],
-    category: "Толстовки",
-    image: null,
-  },
-  {
-    id: 14,
-    name: "Лонгслив",
-    price: 3500,
-    colors: [],
-    category: "Базовое",
-    image: null,
-  },
-  {
-    id: 15,
-    name: "Джоггеры",
-    price: 5000,
-    colors: [],
-    category: "Низ",
-    image: null,
-  },
 ];
 
 const placeholderColors = [
