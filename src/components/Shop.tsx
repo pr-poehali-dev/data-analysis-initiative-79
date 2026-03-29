@@ -55,7 +55,7 @@ const products = [
     price: 10000,
     colors: [],
     category: "Верхняя одежда",
-    image: null,
+    image: "https://cdn.poehali.dev/projects/6ce6322c-ab5c-4fe4-babc-8dc6268d3275/bucket/a73c9c41-09da-4812-a767-37f3d92ef600.png",
   },
   {
     id: 8,
@@ -63,7 +63,7 @@ const products = [
     price: 15000,
     colors: [],
     category: "Пляж",
-    image: null,
+    image: "https://cdn.poehali.dev/projects/6ce6322c-ab5c-4fe4-babc-8dc6268d3275/bucket/8d20f63b-09ec-4b0c-bd40-ddfcf9992087.png",
   },
   {
     id: 9,
@@ -71,7 +71,7 @@ const products = [
     price: 4500,
     colors: [],
     category: "Низ",
-    image: null,
+    image: "https://cdn.poehali.dev/projects/6ce6322c-ab5c-4fe4-babc-8dc6268d3275/bucket/395c57d4-b409-40c4-bf17-0c6f49654b19.png",
   },
   {
     id: 10,
@@ -79,7 +79,7 @@ const products = [
     price: 4500,
     colors: [],
     category: "Низ",
-    image: null,
+    image: "https://cdn.poehali.dev/projects/6ce6322c-ab5c-4fe4-babc-8dc6268d3275/bucket/d2d7f453-3b72-400e-b903-e58248beab82.png",
   },
   {
     id: 11,
@@ -87,7 +87,7 @@ const products = [
     price: 7500,
     colors: [],
     category: "Толстовки",
-    image: null,
+    image: "https://cdn.poehali.dev/projects/6ce6322c-ab5c-4fe4-babc-8dc6268d3275/bucket/7a99046f-2ca3-4994-b03c-dd38a366a0ab.png",
   },
   {
     id: 12,
