@@ -1,5 +1,17 @@
 import { useState } from "react";
 
+const PAYMENT_URL = "https://functions.poehali.dev/23a76e6b-1698-493f-b183-ce2b23914bee";
+
+async function buyProduct(name: string, price: number) {
+  const res = await fetch(PAYMENT_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, price, return_url: window.location.href }),
+  });
+  const data = await res.json();
+  if (data.url) window.location.href = data.url;
+}
+
 const products = [
   {
     id: 1,
@@ -101,6 +113,14 @@ const placeholderColors = [
 
 export default function Shop() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [loadingId, setLoadingId] = useState<number | null>(null);
+
+  const handleBuy = async (product: typeof products[0]) => {
+    if (!product.price) return;
+    setLoadingId(product.id);
+    await buyProduct(product.name, product.price);
+    setLoadingId(null);
+  };
 
   return (
     <section id="shop" className="bg-white px-6 py-20">
@@ -151,13 +171,15 @@ export default function Shop() {
                   }`}
                 />
                 <button
+                  onClick={(e) => { e.stopPropagation(); handleBuy(product); }}
+                  disabled={loadingId === product.id}
                   className={`absolute bottom-0 left-0 right-0 bg-black text-white text-xs uppercase tracking-widest py-3 transition-transform duration-300 ${
                     hoveredId === product.id
                       ? "translate-y-0"
                       : "translate-y-full"
                   }`}
                 >
-                  В корзину
+                  {loadingId === product.id ? "Загрузка..." : "Купить"}
                 </button>
                 {product.colors.length > 0 && (
                   <div className="absolute top-3 left-3 flex gap-1">
@@ -180,11 +202,22 @@ export default function Shop() {
                 <h3 className="text-sm font-medium text-neutral-900 mb-1">
                   {product.name}
                 </h3>
-                <p className="text-sm font-bold text-neutral-900">
-                  {product.price !== null
-                    ? `${product.price.toLocaleString("ru-RU")} ₽`
-                    : "Уточнить цену"}
-                </p>
+                <div className="flex items-center justify-between gap-2">
+                  <p className="text-sm font-bold text-neutral-900">
+                    {product.price !== null
+                      ? `${product.price.toLocaleString("ru-RU")} ₽`
+                      : "Уточнить цену"}
+                  </p>
+                  {product.price && (
+                    <button
+                      onClick={() => handleBuy(product)}
+                      disabled={loadingId === product.id}
+                      className="bg-black text-white text-[10px] uppercase tracking-widest px-3 py-1.5 hover:bg-neutral-700 transition-colors duration-200 disabled:opacity-50"
+                    >
+                      {loadingId === product.id ? "..." : "Купить"}
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           ))}
