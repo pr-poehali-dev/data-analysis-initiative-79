@@ -7,7 +7,7 @@ const products = [
     price: 2000,
     colors: ["Чёрная", "Белая"],
     category: "Базовое",
-    image: null,
+    image: "https://cdn.poehali.dev/projects/6ce6322c-ab5c-4fe4-babc-8dc6268d3275/bucket/cf3f747a-fb33-4c21-bc70-097b635a38be.png",
   },
   {
     id: 2,
@@ -164,11 +164,19 @@ export default function Shop() {
                   placeholderColors[index % placeholderColors.length]
                 }`}
               >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-neutral-400 text-xs uppercase tracking-widest">
-                    {product.name}
-                  </span>
-                </div>
+                {product.image ? (
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-neutral-400 text-xs uppercase tracking-widest">
+                      {product.name}
+                    </span>
+                  </div>
+                )}
                 <div
                   className={`absolute inset-0 bg-black transition-opacity duration-300 ${
                     hoveredId === product.id ? "opacity-10" : "opacity-0"
