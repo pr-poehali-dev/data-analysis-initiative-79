@@ -36,7 +36,7 @@ const products = [
   {
     id: 5,
     name: "Платье",
-    price: null,
+    price: 15000,
     colors: ["Чёрное", "Белое"],
     category: "Платья",
     image: "https://cdn.poehali.dev/projects/6ce6322c-ab5c-4fe4-babc-8dc6268d3275/bucket/3752a644-5e1a-4da8-a4e1-1548b0575133.png",
